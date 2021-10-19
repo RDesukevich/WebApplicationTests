@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using WebApplicationTests.Data;
 
 namespace WebApplicationTests
 {
@@ -23,6 +25,12 @@ namespace WebApplicationTests
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<AppDb>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DC")));
+            services.AddScoped<ISectionService, SectionService>();
+            services.AddScoped<ITestService, TestService>();
+            services.AddScoped<IQuestionService, QuestionService>();
+            services.AddScoped<IAnswerService, AnswerService>();
             services.AddControllersWithViews();
         }
 
