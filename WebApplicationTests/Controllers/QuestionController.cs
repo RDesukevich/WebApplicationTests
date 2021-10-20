@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplicationTests.Models;
+using WebApplicationTests.Service;
 
 namespace WebApplicationTests.Controllers
 {
