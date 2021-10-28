@@ -19,6 +19,7 @@ namespace WebApplicationTests.Controllers
 
         public IActionResult Index()
         {
+
             return View(_section.Get());
         }
 

@@ -26,7 +26,7 @@ namespace WebApplicationTests.Service
 
         public IEnumerable<Section> Get()
         {
-            return _db.Sections;
+            return _db.Sections.Include(s => s.Test);
         }
 
         public async Task<Section> Get(Guid sectionId)

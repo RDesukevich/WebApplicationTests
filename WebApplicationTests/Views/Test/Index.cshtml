@@ -1,0 +1,17 @@
+﻿@model WebApplicationTests.Models.Test
+<link rel="stylesheet" href="~/css/style.css" />
+
+    <form class="">
+        <div class="container text-center">
+            <h1>@Model.Name</h1>
+            <div class="">
+                <a type="button" class="btn btn-lg btn-outline-secondary" asp-controller="Question" asp-action="Index" asp-route-testId="@Model.Id">Take the test</a>
+            </div>
+            <div class=""> 
+                <p class="float-left">@Model.Description</p>
+            </div>   
+            <div>
+                <a class="btn btn-lg btn-outline-secondary" asp-controller="Section" asp-action="Index">Choose another test</a>
+            </div>
+        </div>
+    </form>

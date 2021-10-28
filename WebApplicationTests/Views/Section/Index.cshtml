@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using WebApplicationTests.Models
+@model IEnumerable<WebApplicationTests.Models.Section>
+<link rel="stylesheet" href="~/css/style.css" />
+
+<div class="container">
+    <div class="row">
+        @foreach (var sections in Model)
+        {
+            @foreach (var item in sections.Test)
+            {
+                <div class="col-sm-6">
+                    <a class="btn-outline-secondary btn btn-block mb-2" asp-controller="Test" asp-action="Index" asp-route-TestId="@item.Id">
+                        <div class="row flex-column">
+                            <span class="font-open-sans-weight-600">@item.Name</span>
+                        </div>
+                    </a>
+                </div>
+            }
+        }
+    </div>
+</div>

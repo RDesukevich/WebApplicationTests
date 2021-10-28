@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using WebApplicationTests.Data;
 using WebApplicationTests.Service;
@@ -26,11 +27,20 @@ namespace WebApplicationTests
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDb>(options => options.UseSqlServer(Configuration.GetConnectionString("DC")));
-            services.AddScoped<IAnswerTheQuestionService, AnswerTheQuestionService>();
+            services.AddDbContext<AppDb>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DC")));
+            services.AddScoped<IFAQService, FAQService>();
+            services.AddScoped<ISectionService, SectionService>();
             services.AddScoped<ITestService, TestService>();
             services.AddScoped<IQuestionService, QuestionService>();
-            services.AddScoped<ISectionService, SectionService>();
+            services.AddScoped<IAnswerTheQuestionService, AnswerService>();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                    options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                });
+            services.AddScoped<IUserService, UserService>();
             services.AddControllersWithViews();
         }
 
@@ -52,6 +62,7 @@ namespace WebApplicationTests
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

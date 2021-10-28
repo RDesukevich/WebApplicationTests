@@ -1,0 +1,24 @@
+﻿@model IEnumerable<WebApplicationTests.Models.User>
+
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/css/style.css" />
+@* Сделать адаптив тутака *@
+    <div class="row col-sm-6">
+        <div class="col">Id</div>
+        <div class="col">Name</div>
+        <div class="col">Email</div>
+        <div class="col">Login</div>
+        <div class="col">Password</div>
+        <div class="col">Role</div>
+    </div>
+    @foreach (var user in Model)
+    {
+        <div class="row">
+            <div class="col">@user.Id</div>
+            <div class="col">@user.Name</div>
+            <div class="col">@user.Email</div>
+            <div class="col">@user.Login</div>
+            <div class="col">@user.Password</div>
+            <div class="col">@user.Role</div>
+        </div>
+    }

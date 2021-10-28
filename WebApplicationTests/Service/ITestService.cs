@@ -11,7 +11,7 @@ namespace WebApplicationTests.Service
     public interface ITestService
     {
         public IEnumerable<Test> Get();
-        public Task<Test> Get(Guid testId);
+        public Test Get(Guid testId);
         public Task Create(Test test);
     }
 
@@ -26,12 +26,12 @@ namespace WebApplicationTests.Service
 
         public IEnumerable<Test> Get()
         {
-            return _db.Tests;
+            return _db.Tests.Include(o => o.Section);
         }
 
-        public async Task<Test> Get(Guid testId)
+        public Test Get(Guid testId)
         {
-            return await _db.Tests.FirstOrDefaultAsync(o => o.Id == testId);
+            return _db.Tests.Include(o => o.Section).FirstOrDefault(o => o.Id == testId);
         }
 
         public async Task Create(Test test)

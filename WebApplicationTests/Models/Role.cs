@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 
 namespace WebApplicationTests.Models
 {
-    public class Section
+    public class Role
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public List<Test> Test { get; set; } = new List<Test>();
+
+        public List<User> Users = new List<User>();
     }
 }

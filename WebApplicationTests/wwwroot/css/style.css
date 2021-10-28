@@ -1,0 +1,57 @@
+﻿.bg-3B3A3D {
+    background: #3B3A3D;
+}
+
+.bg-grey {
+    background: #808080;
+}
+
+.bg-dull-yellow {
+    background: #D4D2C0;
+}
+
+.bg-8B7AA8 {
+    background: #8B7AA8;
+}
+
+.bg-27263D {
+    background: #27263D;
+}
+
+.bg-grey-light {
+    background: #dcdcdc;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/roboto-medium.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url("../fonts/roboto-regular.woff2") format('woff2');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url("../fonts/open-sans-semibold.woff2") format('woff2');
+    font-style: normal;
+    font-weight: 600;
+}
+
+.font-roboto-weight-500 {
+    font-weight: 500;
+}
+
+.font-roboto-weight-400 {
+    font-weight: 400;
+}
+
+.font-open-sans-weight-600 {
+    font-family: 'Open Sans';
+    font-weight: 600;
+}

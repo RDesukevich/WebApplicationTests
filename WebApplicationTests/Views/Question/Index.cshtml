@@ -1,0 +1,22 @@
+﻿@using WebApplicationTests.Models
+@model IEnumerable<WebApplicationTests.Models.Question>
+
+<div class="container">
+    @foreach (var quest in Model)
+    {
+        <div class="card-header">
+            <p class="font-weight-bold">@quest.Request</p>
+        </div>
+
+        <div class="row flex-column col-sm-6">
+            @foreach (var answer in quest.Answers)
+            {
+                <div class="m-3">
+                    <input type="radio" name="@quest.Id" class="font-italic"/>
+                    <label>@answer.Response</label>
+                </div>
+            }
+        </div>
+    }
+    <button type="button" class="btn-outline-secondary btn">Finish</button>
+</div>

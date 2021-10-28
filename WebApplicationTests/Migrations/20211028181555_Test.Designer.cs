@@ -10,7 +10,7 @@ using WebApplicationTests.Data;
 namespace WebApplicationTests.Migrations
 {
     [DbContext(typeof(AppDb))]
-    [Migration("20211020153102_Test")]
+    [Migration("20211028181555_Test")]
     partial class Test
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,7 +27,7 @@ namespace WebApplicationTests.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Answer")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("QuestionId")
@@ -37,13 +37,36 @@ namespace WebApplicationTests.Migrations
 
                     b.HasIndex("QuestionId");
 
-                    b.ToTable("AnswerTheQuestions");
+                    b.ToTable("Answers");
+                });
+
+            modelBuilder.Entity("WebApplicationTests.Models.FAQ", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Answer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("HeaderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FAQS");
                 });
 
             modelBuilder.Entity("WebApplicationTests.Models.Question", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AnswerId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
@@ -57,6 +80,20 @@ namespace WebApplicationTests.Migrations
                     b.HasIndex("TestId");
 
                     b.ToTable("Questions");
+                });
+
+            modelBuilder.Entity("WebApplicationTests.Models.Role", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("WebApplicationTests.Models.Section", b =>
@@ -79,6 +116,9 @@ namespace WebApplicationTests.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -90,6 +130,34 @@ namespace WebApplicationTests.Migrations
                     b.HasIndex("SectionId");
 
                     b.ToTable("Tests");
+                });
+
+            modelBuilder.Entity("WebApplicationTests.Models.User", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Login")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("WebApplicationTests.Models.AnswerTheQuestion", b =>
@@ -117,7 +185,7 @@ namespace WebApplicationTests.Migrations
             modelBuilder.Entity("WebApplicationTests.Models.Test", b =>
                 {
                     b.HasOne("WebApplicationTests.Models.Section", "Section")
-                        .WithMany("Tests")
+                        .WithMany("Test")
                         .HasForeignKey("SectionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -125,9 +193,20 @@ namespace WebApplicationTests.Migrations
                     b.Navigation("Section");
                 });
 
+            modelBuilder.Entity("WebApplicationTests.Models.User", b =>
+                {
+                    b.HasOne("WebApplicationTests.Models.Role", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+                });
+
             modelBuilder.Entity("WebApplicationTests.Models.Section", b =>
                 {
-                    b.Navigation("Tests");
+                    b.Navigation("Test");
                 });
 #pragma warning restore 612, 618
         }

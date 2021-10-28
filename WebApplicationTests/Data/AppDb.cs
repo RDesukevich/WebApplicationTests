@@ -13,9 +13,12 @@ namespace WebApplicationTests.Data
         {
         }
 
-        public DbSet<AnswerTheQuestion> AnswerTheQuestions { get; set; }
         public DbSet<Section> Sections { get; set; }
         public DbSet<Test> Tests { get; set; }
         public DbSet<Question> Questions { get; set; }
+        public DbSet<AnswerTheQuestion> Answers { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<FAQ> FAQS { get; set; }
     }
 }
