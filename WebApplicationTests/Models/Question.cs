@@ -9,8 +9,7 @@ namespace WebApplicationTests.Models
     public class Question
     {
         public Guid Id { get; set; }
-        [Display(Name = "Question")]
-        public string Request { get; set; }
+        public string Name { get; set; }
         public Guid TestId { get; set; }
         public Test Test { get; set; }
         public Guid AnswerId { get; set; }

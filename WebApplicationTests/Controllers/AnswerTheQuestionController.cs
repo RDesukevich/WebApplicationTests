@@ -8,11 +8,11 @@ using WebApplicationTests.Service;
 
 namespace WebApplicationTests.Controllers
 {
-    public class AnswerController : Controller
+    public class AnswerTheQuestionController : Controller
     {
         private readonly IAnswerTheQuestionService _answer;
 
-        public AnswerController(IAnswerTheQuestionService answer)
+        public AnswerTheQuestionController(IAnswerTheQuestionService answer)
         {
             _answer = answer;
         }
