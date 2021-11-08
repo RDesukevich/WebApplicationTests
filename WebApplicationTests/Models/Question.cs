@@ -13,6 +13,7 @@ namespace WebApplicationTests.Models
         public Guid TestId { get; set; }
         public Test Test { get; set; }
         public Guid AnswerId { get; set; }
-        public List<AnswerTheQuestion> Answers = new List<AnswerTheQuestion>();
+        public Guid UserAnswerId { get; set; }
+        public List<AnswerTheQuestion> Answers { get; set; } = new List<AnswerTheQuestion>();
     }
 }

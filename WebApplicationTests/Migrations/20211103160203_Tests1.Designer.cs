@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplicationTests.Data;
 
 namespace WebApplicationTests.Migrations
 {
     [DbContext(typeof(AppDb))]
-    partial class AppDbModelSnapshot : ModelSnapshot
+    [Migration("20211103160203_Tests1")]
+    partial class Tests1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,9 +73,6 @@ namespace WebApplicationTests.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("TestId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("UserAnswerId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -164,7 +163,7 @@ namespace WebApplicationTests.Migrations
             modelBuilder.Entity("WebApplicationTests.Models.AnswerTheQuestion", b =>
                 {
                     b.HasOne("WebApplicationTests.Models.Question", "Question")
-                        .WithMany("Answers")
+                        .WithMany()
                         .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -203,11 +202,6 @@ namespace WebApplicationTests.Migrations
                         .IsRequired();
 
                     b.Navigation("Role");
-                });
-
-            modelBuilder.Entity("WebApplicationTests.Models.Question", b =>
-                {
-                    b.Navigation("Answers");
                 });
 
             modelBuilder.Entity("WebApplicationTests.Models.Section", b =>

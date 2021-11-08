@@ -22,9 +22,8 @@ namespace WebApplicationTests.Controllers
 
         public IActionResult Index(Guid testId)
         {
-            List<Question> questions = _question.GetForTest(testId).ToList();
             ViewBag.TestId = new SelectList(_question.Get(), "Id", "Name");
-            return View(questions);
+            return View(_question.GetForTest(testId));
         }
 
         public IActionResult Create()

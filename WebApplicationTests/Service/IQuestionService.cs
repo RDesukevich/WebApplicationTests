@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using WebApplicationTests.Data;
 using WebApplicationTests.Models;
 
@@ -18,10 +19,12 @@ namespace WebApplicationTests.Service
 
     public class QuestionService : IQuestionService
     {
+        private readonly IQuestionService _question;
         private readonly AppDb _db;
 
-        public QuestionService(AppDb db)
+        public QuestionService(IQuestionService question,AppDb db)
         {
+            _question = question;
             _db = db;
         }
 
@@ -44,8 +47,8 @@ namespace WebApplicationTests.Service
 
         public IEnumerable<Question> GetForTest(Guid testId)
         {
-
-            return _db.Questions.Include(o => o.Answers).Where(q => q.TestId == testId);
+           return _db.Questions.Include(o => o.Answers).Where(q => q.TestId == testId);
         }
+
     }
 }
