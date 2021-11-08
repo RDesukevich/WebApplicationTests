@@ -11,7 +11,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using WebApplicationTests.Data;
+using WebApplicationTests.Models;
 using WebApplicationTests.Service;
+using WebApplicationTests.Services;
 
 namespace WebApplicationTests
 {
@@ -34,6 +36,7 @@ namespace WebApplicationTests
             services.AddScoped<ITestService, TestService>();
             services.AddScoped<IQuestionService, QuestionService>();
             services.AddScoped<IAnswerTheQuestionService, AnswerService>();
+            services.AddScoped<IAboutYouService, AboutYouService>();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
                 {

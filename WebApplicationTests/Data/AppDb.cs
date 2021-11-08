@@ -20,5 +20,6 @@ namespace WebApplicationTests.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<FAQ> FAQS { get; set; }
+        public DbSet<AboutYou> AboutYous { get; set; }
     }
 }

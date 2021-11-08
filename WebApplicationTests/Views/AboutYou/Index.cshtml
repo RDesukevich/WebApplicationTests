@@ -1,0 +1,18 @@
+﻿@model IEnumerable<WebApplicationTests.Models.AboutYou>
+
+<div class="container">
+    @foreach (var about in Model)
+    {
+        <div>
+            <div>
+                <p>@about.CompanyInfo</p>
+            </div>
+            <div>
+                <p>@about.ActivityProfile</p>
+            </div>
+            <div>
+                <p>@about.CompanyGoals</p>
+            </div>
+        </div>
+    }
+</div>
