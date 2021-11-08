@@ -19,12 +19,10 @@ namespace WebApplicationTests.Service
 
     public class QuestionService : IQuestionService
     {
-        private readonly IQuestionService _question;
         private readonly AppDb _db;
 
-        public QuestionService(IQuestionService question,AppDb db)
+        public QuestionService(AppDb db)
         {
-            _question = question;
             _db = db;
         }
 
