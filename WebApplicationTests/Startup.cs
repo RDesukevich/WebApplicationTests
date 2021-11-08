@@ -31,12 +31,12 @@ namespace WebApplicationTests
         {
             services.AddDbContext<AppDb>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DC")));
-            services.AddScoped<IFAQService, FAQService>();
             services.AddScoped<ISectionService, SectionService>();
             services.AddScoped<ITestService, TestService>();
             services.AddScoped<IQuestionService, QuestionService>();
             services.AddScoped<IAnswerTheQuestionService, AnswerService>();
             services.AddScoped<IAboutYouService, AboutYouService>();
+            services.AddTransient<ISupportService, SupportService>();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
                 {

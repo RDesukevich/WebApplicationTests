@@ -1,0 +1,19 @@
+﻿@model IEnumerable<SupportTicket>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
+            <div class="border">
+                <h3 class="text-center" style="margin-bottom: 20px">Support Tickets</h3>
+                @foreach (var ticket in Model)
+                {
+                    <div class="row border text-center" style="margin: 15px">
+                        <h6>@ticket.Submit</h6>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

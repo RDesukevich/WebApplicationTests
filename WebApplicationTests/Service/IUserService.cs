@@ -10,7 +10,8 @@ namespace WebApplicationTests.Service
 {
    public interface IUserService
    {
-       IEnumerable<User> Get();
+        IEnumerable<User> Get();
+        Task<User> GetUserAsync(string login);
         public Task<bool> CheckForEnableAsync(string login, string password);
         public Task<User> GetUserByLoginAndPasswordAsync(string login, string password);
         public Task<User> AddUserAsync(User user);
@@ -28,6 +29,11 @@ namespace WebApplicationTests.Service
         public IEnumerable<User> Get()
         {
             return _db.Users;
+        }
+
+        public async Task<User> GetUserAsync(string login)
+        {
+            return await _db.Users.FirstOrDefaultAsync(u => u.Login == login);
         }
 
         public async Task<bool> CheckForEnableAsync(string login, string password)

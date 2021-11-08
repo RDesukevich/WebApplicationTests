@@ -23,7 +23,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Section" asp-action="Index">Tests</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="FAQ" asp-action="Index">FAQ</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Support" asp-action="CreateTicket">Support</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="AboutYou" asp-action="Index">About You</a>
@@ -39,9 +39,6 @@
                                 <a class="col">@Context.User.FindFirst("Login")</a>
                                 <a class="col">@Context.User.FindFirst("Role")</a>
                             </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Log out</a>
                         </li>
                     </ul>
                 </div>

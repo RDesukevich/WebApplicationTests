@@ -23,25 +23,21 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Section" asp-action="Index">Tests</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="FAQ" asp-action="Index">FAQ</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Support" asp-action="CreateTicket">Support</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="AboutYou" asp-action="Index">About You</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav flex-grow-1 align-items-center justify-content-end">
-
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Log in</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Log out</a>
                         </li>
                         <li class="nav-item">
                             <div class="row flex-column">
                                 <a class="col">@Context.User.FindFirst("Login")</a>
                                 <a class="col">@Context.User.FindFirst("Role")</a>
                             </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Log out</a>
                         </li>
                     </ul>
                 </div>
