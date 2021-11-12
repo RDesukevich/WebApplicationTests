@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace WebApplicationTests.Models
 {
@@ -13,6 +11,6 @@ namespace WebApplicationTests.Models
         public string UserEmailAddress { get; set; }
         public string UserName { get; set; }
         public List<TicketMessage> TicketMessages { get; set; }
-        public bool isFAQ { get; set; }
+        public bool IsFaq { get; set; }
     }
 }

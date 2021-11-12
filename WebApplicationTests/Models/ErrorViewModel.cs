@@ -1,4 +1,3 @@
-using System;
 
 namespace WebApplicationTests.Models
 {

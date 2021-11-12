@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using WebApplicationTests.Data;
 using WebApplicationTests.Models;
 
-namespace WebApplicationTests.Services
+namespace WebApplicationTests.Service
 {
     public interface IAboutYouService
     {

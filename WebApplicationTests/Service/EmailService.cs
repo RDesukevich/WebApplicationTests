@@ -13,8 +13,8 @@ namespace WebApplicationTests.Service
         {
             var emailMessage = new MimeMessage();
 
-            emailMessage.From.Add(new MailboxAddress("Администрация сайта", "9141045@mail.ru"));
-            emailMessage.To.Add(new MailboxAddress("9141045@mail.ru", email));
+            emailMessage.From.Add(new MailboxAddress("Администрация сайта", "dudoser255423167@mail.com"));
+            emailMessage.To.Add(new MailboxAddress("dudoser255423167@mail.com", email));
             emailMessage.Subject = subject;
             emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
             {
@@ -24,7 +24,7 @@ namespace WebApplicationTests.Service
             using (var client = new SmtpClient())
             {
                 await client.ConnectAsync("smtp.mail.ru", 25, false);
-                await client.AuthenticateAsync("9141045@mail.ru", "zte4521");
+                await client.AuthenticateAsync("dudoser255423167@mail.com", "Dimas096912602");
                 await client.SendAsync(emailMessage);
 
                 await client.DisconnectAsync(true);
